@@ -38,7 +38,34 @@ func lca(head *Node, a string, b string) *Node {
 	if !aExists || !bExists || len(head.data) == 0 {
 		return nil
 	}
+
+	/** Search tree for Lowest Common Ancestor */
+	return lcaSearch(head, a, b)
 }
+
+func lcaSearch(head *Node, a string, b string) *Node {
+	if head == nil {
+		return nil
+	}
+
+	if head.data == a || head.data == b {
+		return head
+	}
+
+	leftSearch := lcaSearch(head.left, a, b)
+	rightSearch := lcaSearch(head.right, a, b)
+
+	if leftSearch != nil {
+		if rightSearch != nil {
+			return head
+		}
+
+		return leftSearch
+	}
+
+	return rightSearch
+}
+
 func pointExistsOnTree(currentNode *Node, data string) bool {
 
 	/** Ensure root and data intialised */
