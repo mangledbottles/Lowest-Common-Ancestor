@@ -29,6 +29,16 @@ func main() {
 	x.right.right = &Node{"duke", nil, nil}
 
 	fmt.Print(x)
+func lca(head *Node, a string, b string) *Node {
+
+	aExists := pointExistsOnTree(head, a)
+	bExists := pointExistsOnTree(head, b)
+
+	/** Ensure points exist inside tree and head exists with data */
+	if !aExists || !bExists || len(head.data) == 0 {
+		return nil
+	}
+}
 func pointExistsOnTree(currentNode *Node, data string) bool {
 
 	/** Ensure root and data intialised */
