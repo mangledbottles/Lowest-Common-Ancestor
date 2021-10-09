@@ -29,3 +29,20 @@ func main() {
 	fmt.Print(x)
 
 }
+
+func traverseTree(n Node, index int) {
+	index = index + 1
+	var toPrint string = ""
+	if n.left != nil {
+		// toPrint
+		traverseTree(*n.left, index)
+	}
+
+	if n.right != nil {
+
+		traverseTree(*n.right, index)
+	}
+
+	fmt.Println(toPrint)
+
+}
