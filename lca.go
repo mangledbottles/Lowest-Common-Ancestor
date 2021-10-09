@@ -28,7 +28,11 @@ func main() {
 	x.right.left = &Node{"mike", nil, nil}
 	x.right.right = &Node{"duke", nil, nil}
 
-	fmt.Print(x)
+	lcaResp := lca(&x, "pat", "mike")
+	fmt.Print(lcaResp.data)
+
+}
+
 func lca(head *Node, a string, b string) *Node {
 
 	aExists := pointExistsOnTree(head, a)
