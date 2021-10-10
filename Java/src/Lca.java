@@ -11,9 +11,12 @@ public class Lca {
     }
 
     public Node FindLca() {
-        System.out.println(head);
 
-        return new Node("john", null, null);
+        boolean aExists = pointExistsOnTree(head, a);
+        boolean bExists = pointExistsOnTree(head, b);
+
+        /* Ensure points exist inside tree and head exists with data */
+        if(!aExists || !bExists || head.data.length() == 0) return null;
     }
 
     private Node LcaRecursive(Node currentNode) {
