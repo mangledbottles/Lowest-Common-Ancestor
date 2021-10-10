@@ -28,4 +28,48 @@ public class LcaTest {
 
         System.out.println(lcaResp.data);
     }
+
+    @Test
+    public void TestLargeTree() {
+        /*
+         * Initialise tree structure with data
+         *
+         *		 	 john
+         *	    	/    \
+         *	 	pat      mary
+         *   	/  \      /   \
+         *	 mat sarah  mike  duke
+         *
+         */
+
+        Node n = new Node("john", null, null);
+        n.left = new Node("pat", null, null);
+        n.right = new Node("mary", null, null);
+
+        n.left.left = new Node("mat", null, null);
+        n.left.right = new Node("sarah", null, null);
+
+        n.right.left = new Node("mike", null, null);
+        n.right.right = new Node("duke", null, null);
+
+        String[][] lcaAnswerTable = new String[][] {
+                {"pat", "mary", "john"},
+                {"mat", "sarah", "pat"},
+                {"mike", "duke", "mary"},
+                {"mat", "pat", "john"},
+                {"mary", "sarah", "john"},
+        };
+
+        String predecessor1, predecessor2, commonAncestor;
+        for(int i=0; i<lcaAnswerTable.length; i++) {
+            predecessor1 = lcaAnswerTable[i][0];
+            predecessor2 = lcaAnswerTable[i][1];
+            commonAncestor = lcaAnswerTable[i][2];
+
+            Node lcaResp = new Lca(n, predecessor1, predecessor2).FindLca();
+            assertEquals(String.format("lca(Node, %s, %s) = %s; wants %s", predecessor1, predecessor2, lcaResp, commonAncestor),
+                    commonAncestor, lcaResp.data);
+
+        }
+    }
 }
