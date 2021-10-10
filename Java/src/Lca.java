@@ -17,10 +17,29 @@ public class Lca {
 
         /* Ensure points exist inside tree and head exists with data */
         if(!aExists || !bExists || head.data.length() == 0) return null;
+
+        /* Search tree for Lowest Common Ancestor */
+        return LcaRecursive(head);
     }
 
     private Node LcaRecursive(Node currentNode) {
-        return new Node("john", null, null);
+        if (currentNode == null)
+            return null;
+
+        if (currentNode.data.equals(a) || currentNode.data.equals(b))
+            return head;
+
+        Node leftSearch = LcaRecursive(currentNode.left);
+        Node rightSearch = LcaRecursive(currentNode.right);
+
+        if (leftSearch != null) {
+            if (rightSearch != null)
+                return currentNode;
+
+            return leftSearch;
+        }
+
+        return rightSearch;
     }
 
     private boolean pointExistsOnTree(Node currentNode, String data) {
