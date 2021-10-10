@@ -52,7 +52,7 @@ public class LcaTest {
         n.right.left = new Node("mike", null, null);
         n.right.right = new Node("duke", null, null);
 
-        String[][] lcaAnswerTable = new String[][] {
+        String[][] lcaAnswerTable = new String[][]{
                 {"pat", "mary", "john"},
                 {"mat", "sarah", "pat"},
                 {"mike", "duke", "mary"},
@@ -71,4 +71,23 @@ public class LcaTest {
                     commonAncestor, lcaResp.data);
 
         }
+    }
+
+    @Test
+    public void TestMissingReference() {
+        /*
+         *		 	 john
+         *	    	/    \
+         *	 	pat      mary
+         *
+         */
+
+        Node n = new Node("john", null, null);
+        n.left = new Node("pat", null, null);
+        n.right = new Node("mary", null, null);
+
+        Node lcaResp = new Lca(n, "pat", "doesNotExistOnTree").FindLca();
+        assertNull(String.format("lca(Node, pat, doesNotExistOnTree) = %s; wants null", lcaResp), lcaResp);
+    }
+
 }
