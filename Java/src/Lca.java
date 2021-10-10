@@ -1,4 +1,5 @@
 package Java.src;
+
 public class Lca {
     public Node head;
     public String a, b;
@@ -14,4 +15,10 @@ public class Lca {
 
         return new Node("john", null, null);
     }
+
+    private Node LcaRecursive(Node currentNode) {
+        return new Node("john", null, null);
+    }
+
+
 }
