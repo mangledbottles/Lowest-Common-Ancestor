@@ -90,4 +90,18 @@ public class LcaTest {
         assertNull(String.format("lca(Node, pat, doesNotExistOnTree) = %s; wants null", lcaResp), lcaResp);
     }
 
+    @Test
+    public void TestSingularTree() {
+        /*
+         *
+         *	tom
+         *
+         */
+
+        Node n = new Node("tom", null, null);
+
+        Node lcaResp = new Lca(n, "tom", "tom").FindLca();
+
+        assertEquals(String.format("lca(Node, tom, tom) = %s; wants tom", lcaResp.data), "tom", lcaResp.data);
+    }
 }
