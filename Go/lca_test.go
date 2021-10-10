@@ -94,3 +94,19 @@ func TestLargeTree(t *testing.T) {
 	}
 }
 
+func TestSingularTree(t *testing.T) {
+	/**
+	*
+	*	tom
+	*
+	 */
+
+	x := Node{"tom", nil, nil}
+
+	lcaResp := lca(&x, "tom", "tom")
+
+	if lcaResp.data != "tom" {
+		t.Errorf(`lca(Node, "tom", "tom") = %s; wants "tom"`, lcaResp.data)
+	}
+
+}
