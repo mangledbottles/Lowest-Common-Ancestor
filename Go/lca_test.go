@@ -43,4 +43,3 @@ func TestMissingReference(t *testing.T) {
 	}
 }
 
-// TODO: Write more tests
