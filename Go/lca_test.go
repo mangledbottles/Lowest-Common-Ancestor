@@ -1,7 +1,6 @@
 package lca
 
 import (
-	"fmt"
 	"testing"
 )
 
