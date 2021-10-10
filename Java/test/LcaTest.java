@@ -61,10 +61,10 @@ public class LcaTest {
         };
 
         String predecessor1, predecessor2, commonAncestor;
-        for(int i=0; i<lcaAnswerTable.length; i++) {
-            predecessor1 = lcaAnswerTable[i][0];
-            predecessor2 = lcaAnswerTable[i][1];
-            commonAncestor = lcaAnswerTable[i][2];
+        for (String[] lcaAnswer : lcaAnswerTable) {
+            predecessor1 = lcaAnswer[0];
+            predecessor2 = lcaAnswer[1];
+            commonAncestor = lcaAnswer[2];
 
             Node lcaResp = new Lca(n, predecessor1, predecessor2).FindLca();
             assertEquals(String.format("lca(Node, %s, %s) = %s; wants %s", predecessor1, predecessor2, lcaResp, commonAncestor),
