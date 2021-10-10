@@ -8,4 +8,10 @@ public class Lca {
         this.a = a;
         this.b = b;
     }
+
+    public Node FindLca() {
+        System.out.println(head);
+
+        return new Node("john", null, null);
+    }
 }
