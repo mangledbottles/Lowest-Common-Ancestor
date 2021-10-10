@@ -10,4 +10,20 @@ import static org.junit.Assert.*;
 
 @RunWith(JUnit4.class)
 public class LcaTest {
+    @Test
+    public void TestLCA() {
+        /* Initialise tree structure with data
+         		 	 john
+         	    	/    \
+         	 	 pat      mary
+         */
+
+        Node n = new Node("john", null, null);
+        n.left = new Node("pat", null, null);
+        n.right = new Node("mary", null, null);
+
+        Node lcaResp = new Lca(n, "pat", "mary").FindLca();
+
+        System.out.println(lcaResp.data);
+    }
 }
