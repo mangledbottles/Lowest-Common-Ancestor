@@ -71,5 +71,4 @@ public class LcaTest {
                     commonAncestor, lcaResp.data);
 
         }
-    }
 }
