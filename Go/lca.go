@@ -54,7 +54,7 @@ func pointExistsOnTree(currentNode *Node, data string) bool {
 		return true
 	}
 
-	/** Loop recursivly through left and right nodes to check if data exists */
+	/** Loop recursively through left and right nodes to check if data exists */
 	return pointExistsOnTree(currentNode.left, data) || pointExistsOnTree(currentNode.right, data)
 
 }
