@@ -24,6 +24,8 @@ public class LcaTest {
 
         Node lcaResp = new Lca(n, "pat", "mary").FindLca();
 
+        assertEquals("lca(Node, pat, mary) = john; wants john", "john", lcaResp.data);
+
         System.out.println(lcaResp.data);
     }
 }
