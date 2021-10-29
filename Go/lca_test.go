@@ -110,3 +110,45 @@ func TestSingularTree(t *testing.T) {
 	}
 
 }
+
+func TestSimpleDAGTree(t *testing.T) {
+	/**
+	*
+	*     a
+	*    / \
+	*   b   c
+	*    \ /
+	*	  d
+	*	  |
+	*	  e
+	 */
+
+	x := Node{"a", nil, nil}
+	commonNode := &Node{"d", nil, nil}
+
+	x.left = &Node{"b", nil, nil}
+	x.left.right = commonNode
+
+	x.right = &Node{"c", nil, nil}
+	x.right.left = commonNode
+
+	commonNode.left = &Node{"e", nil, nil}
+}
+
+func TestDAGTree(t *testing.T) {
+	/**
+	*
+	*     a
+	*    / \
+	*   b   c
+	*    \ /
+	*	  d
+	 */
+
+	x := Node{"a", nil, nil}
+	x.left = &Node{"b", nil, nil}
+	x.left.right = &Node{"d", nil, nil}
+
+	x.right = &Node{"c", nil, nil}
+	x.right.left = x.left.right
+}
